@@ -5,7 +5,7 @@ pipeline {
         maven 'Maven3'
     }
     environment {
-        REPO_URL = 'https://github.com/MINAWI0/Product-Service.git'
+        REPO_URL = 'https://github.com/ia-project-org/eureka-server-discovery.git'
         MANIFEST_REPO = 'https://github.com/MINAWI0/manifest-argo.git'
         REGISTRY = 'minaouimh/ai'
         REGISTRY_CREDENTIAL = 'dockerhub'
@@ -79,7 +79,6 @@ pipeline {
 //         }
 //     }
 // }
-
 }
     post {
                 always {
