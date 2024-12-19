@@ -11,7 +11,7 @@ FROM bellsoft/liberica-runtime-container:jre-21-musl
 WORKDIR /app
 
 # Expose the necessary port
-EXPOSE 8084
+EXPOSE 8081
 
 # Copy the built JAR file from the builder stage
 COPY --from=builder /app/target/*.jar app.jar
