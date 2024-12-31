@@ -6,7 +6,7 @@ eureka:
     hostname: 34.41.170.207  # Public IP address of your Eureka server
   client:
     serviceUrl:
-      defaultZone: http://34.41.170.207:8081/eureka/  # Update this URL to the public IP address of your Eureka server
+      defaultZone: http://34.41.170.207:32003/eureka/  # Update this URL to the public IP address of your Eureka server
     register-with-eureka: true  # Set to true if you want the client to register with Eureka
     fetch-registry: true  # Set to true if you want the client to fetch the registry from Eureka
   server:
