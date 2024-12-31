@@ -3,11 +3,15 @@ server:
 
 eureka:
   instance:
-    hostname: 34.41.170.207  # Public IP address of your Eureka server
+    hostname: eureka-service  # Kubernetes service name
+    prefer-ip-address: true
+
   client:
     serviceUrl:
-      defaultZone: http://34.41.170.207:32003/eureka/  # Update this URL to the public IP address of your Eureka server
-    register-with-eureka: true  # Set to true if you want the client to register with Eureka
-    fetch-registry: true  # Set to true if you want the client to fetch the registry from Eureka
+      defaultZone: http://eureka-service:8081/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
   server:
-    enable-self-preservation: false
+    enable-self-preservation: true  # Recommended for production
+    eviction-interval-timer-in-ms: 60000  # Optional: adjust eviction timing
