@@ -6,7 +6,7 @@ pipeline {
     }
     environment {
         REPO_URL = 'https://github.com/ia-project-org/eureka-server-discovery.git'
-        MANIFEST_REPO = 'https://github.com/MINAWI0/manifest-argo.git'
+        MANIFEST_REPO = 'https://github.com/ia-project-org/MicroservicesConfiguration.git'
         REGISTRY = 'minaouimh/ai'
         REGISTRY_CREDENTIAL = 'dockerhub'
         SONARQUBE_CREDENTIALS_ID = 'sonar'
@@ -59,26 +59,26 @@ pipeline {
                 }
             }
         }
-//         stage('Update Manifest') {
-//             steps {
-//                 script {
-//                     def id = 'Product-Service'
-//                     def imageTag = "${id}-${BUILD_NUMBER}"
-//                     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GITHUB_PASSWORD', usernameVariable: 'GITHUB_USERNAME')]) {
-//                         git credentialsId: 'github', url: MANIFEST_REPO, branch: 'main'
-//                         sh """
-//                             git status
-//                             sed -i 's|image: minaouimh/ai:.*|image: minaouimh/ai:${imageTag}|g' spring-boot-deployment.yaml
-//                             git config --global user.email "jenkins@example.com"
-//                             git config --global user.name "Jenkins"
-//                             git add spring-boot-deployment.yaml
-//                             git commit -m "Update image to ${imageTag}"
-//                             git push https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/MINAWI0/manifest-argo.git main
-//                         """
-//                 }
-//         }
-//     }
-// }
+         stage('Update Manifest') {
+             steps {
+                 script {
+                     def id = 'eureka-server-discovery'
+                     def imageTag = "${id}-${BUILD_NUMBER}"
+                     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GITHUB_PASSWORD', usernameVariable: 'GITHUB_USERNAME')]) {
+                         git credentialsId: 'github', url: MANIFEST_REPO, branch: 'main'
+                         sh """
+                             git status
+                             sed -i 's|image: minaouimh/ai:.*|image: minaouimh/ai:${imageTag}|g' deployment/eureka-server/eureka-server-deployment.yaml
+                             git config --global user.email "jenkins@example.com"
+                             git config --global user.name "Jenkins"
+                             git add deployment/eureka-server/eureka-server-deployment.yaml
+                             git commit -m "Update image to ${imageTag}"
+                             git push https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/ia-project-org/MicroservicesConfiguration.git main
+                         """
+                 }
+         }
+     }
+ }
 }
     post {
                 always {

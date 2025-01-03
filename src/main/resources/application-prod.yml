@@ -12,7 +12,7 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
 
-  server:
-    enable-self-preservation: true  # Recommended for production
-    eviction-interval-timer-in-ms: 60000  # Optional: adjust eviction timing
+#  server:
+#    enable-self-preservation: true  # Recommended for production
+#    eviction-interval-timer-in-ms: 60000  # Optional: adjust eviction timing
 
