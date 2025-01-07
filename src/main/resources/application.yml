@@ -3,7 +3,7 @@ server:
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: eureka-server-discovery.onrender.com
   client:
     serviceUrl:
       defaultZone:
