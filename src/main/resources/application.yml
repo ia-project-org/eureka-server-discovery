@@ -7,7 +7,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone:
-        http://localhost:8081/eureka/
+        ${EUREKA_HOST:https://eureka-server-discovery.onrender.com/eureka/}
     register-with-eureka: false
     fetch-registry: false
   server:
